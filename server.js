@@ -1,11 +1,13 @@
 const express = require('express');
 const axios = require('axios');
 const bodyParser = require('body-parser');
+require('dotenv').config();
 
 const app = express();
 app.use(bodyParser.json());
 
-const OPENAI_API_KEY = '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'; // Replace with your actual key
+const openaiApiKey = process.env.OPENAI_API_KEY;
+
 
 app.post('/caption', async (req, res) => {
   const { imageUrl } = req.body;
@@ -32,7 +34,7 @@ app.post('/caption', async (req, res) => {
       },
       {
         headers: {
-          'Authorization': `Bearer ${OPENAI_API_KEY}`,
+          'Authorization': `Bearer ${openaiApiKey}`,
           'Content-Type': 'application/json'
         }
       }
