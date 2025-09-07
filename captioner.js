@@ -1,4 +1,5 @@
 const { pipeline } = require('@xenova/transformers');
+
 const sharp = require('sharp');
 
 let captioner = null;
